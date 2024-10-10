@@ -1,19 +1,18 @@
-// Libs
-import { useFrame } from '@react-three/fiber'
 import { type FC, useRef } from 'react'
+
+import { useFrame } from '@react-three/fiber'
 import { type ShaderMaterial, Uniform } from 'three'
-// App
-import { getPositionsAndUvs } from '@/functions/three.functions'
-// GLSL
+
+import { getPositionsAndUvs } from '@/functions'
+
 import fragmentShader from '@/assets/shaders/fragment.glsl'
 import vertexShader from '@/assets/shaders/vertex.glsl'
 
-interface ParticlesProps {
+type ParticlesProps = {
     resolution: number
 }
 
 export const Particles: FC<ParticlesProps> = ({ resolution }) => {
-    
     const particleCount = resolution ** 2
     const { positions, uvs } = getPositionsAndUvs(resolution, 5)
 
